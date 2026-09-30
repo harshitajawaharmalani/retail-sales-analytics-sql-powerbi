@@ -96,16 +96,11 @@ payment_dim ──┘
 ## Dataset
 
 Source: **"ECommerce Data Analysis"** dataset on Kaggle (6 tables: 1 fact, 5 dimensions).
-Link: `<ADD KAGGLE DATASET URL HERE>`
+Link: `<https://www.kaggle.com/datasets/mmohaiminulislam/ecommerce-data-analysis>`
 
 The dataset is publicly available and credited to its original author. The SQL scripts, ETL process and dashboard in this repo are my own work built on top of it.
-
-## Limitations
-
-- The data appears to be synthetic (for example, customer names do not match the store locations), so findings are illustrative and not real business results.
-- No profit or cost data, so the analysis covers revenue only.
 
 ## Author
 
 **<Your Name>**
-[LinkedIn](<your-linkedin-url>) · [GitHub](<your-github-url>)
+[LinkedIn](<https://www.linkedin.com/in/harshita-jawaharmalani-2568b32aa>) · [GitHub](<https://github.com/harshitajawaharmalani>)
