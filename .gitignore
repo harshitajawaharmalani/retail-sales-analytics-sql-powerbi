@@ -1,0 +1,5 @@
+# Raw data is large; download it from the Kaggle link in the README
+data/*.csv
+*.bak
+.DS_Store
+Thumbs.db
