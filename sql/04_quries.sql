@@ -1,3 +1,4 @@
+
 USE ecommerce_db;
 GO
  
@@ -10,13 +11,16 @@ JOIN item_dim i ON f.item_key = i.item_key
 GROUP BY i.item_name
 ORDER BY total_sales DESC;
  
-/* 2. Top 10 customers by total spend */
+/* 2. Top 10 customers by total spend
+   Grouped by customer_key, not name, because many different customers
+   share the same name (e.g. "rohit", "vansu dev"). */
 SELECT TOP 10
-    c.name,
+    c.customer_key,
+    c.customer_name,
     SUM(f.total_price) AS total_spend
 FROM fact_table f
-JOIN customer_dim c ON f.customer_key = c.coustomer_key
-GROUP BY c.name
+JOIN vw_customer_dim_clean c ON f.customer_key = c.customer_key
+GROUP BY c.customer_key, c.customer_name
 ORDER BY total_spend DESC;
  
 /* 3. Sales by city */
@@ -59,12 +63,14 @@ ORDER BY t.year, t.month;
  
 /* 7. Customer purchase frequency */
 SELECT TOP 10
-    c.name,
+    c.customer_key,
+    c.customer_name,
     COUNT(*) AS purchase_frequency
 FROM fact_table f
-JOIN customer_dim c ON f.customer_key = c.coustomer_key
-GROUP BY c.name
+JOIN vw_customer_dim_clean c ON f.customer_key = c.customer_key
+GROUP BY c.customer_key, c.customer_name
 ORDER BY purchase_frequency DESC;
+GO
  
 /* 8. Top 5 product categories by quantity sold */
 SELECT TOP 5
@@ -75,7 +81,7 @@ JOIN item_dim i ON f.item_key = i.item_key
 GROUP BY i.description
 ORDER BY total_quantity_sold DESC;
  
-/* 9. Payment method preferences */
+/* 9. Payment method preferences (with readable names) */
 SELECT
     p.trans_type,
     COUNT(*) AS payment_count
