@@ -105,7 +105,17 @@ CONTAINS(
 
 Dhaka accounts for about 22% of total revenue.
 
+**Dhaka manager** (`dhaka.manager@company.com`): only Dhaka data.
+
 ![RLS test: Dhaka manager](powerbi/rls_dhaka.png)
+
+**Regional head** (`regional.head@company.com`): Dhaka and Khulna.
+
+![RLS test: multi-city user](powerbi/rls_multi_city.png)
+
+**Unlisted user** (`nobody@example.com`): no data.
+
+![RLS test: unlisted user](powerbi/rls_unlisted.png)
 
 > Row-level security is enforced in the Power BI Service. In Power BI Desktop it is simulated with "View as". The emails in `user_city_map` are sample values.
 
@@ -134,9 +144,9 @@ Dhaka accounts for about 22% of total revenue.
 ├── .gitignore
 ├── powerbi/
 │   ├── dashboard.png              # dashboard screenshot
-│   ├── rls_dhaka.png              # security test screenshot
-│   ├── rls_multi_city.png         # security test screenshot
-│   ├── rls_unlisted.png           # security test screenshot
+│   ├── rls_dhaka.png              # security test: single-city manager
+│   ├── rls_multi_city.png         # security test: user mapped to two cities
+│   ├── rls_unlisted.png           # security test: user not in mapping table
 │   └── Ecomm_sales_dashboard.pbix # Power BI file
 ├── data/                          # CSVs not included (see Dataset)
 └── sql/
