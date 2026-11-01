@@ -107,7 +107,7 @@ Dhaka accounts for about 22% of total revenue.
 
 **Dhaka manager** (`dhaka.manager@company.com`): only Dhaka data.
 
-![RLS test: Dhaka manager](powerbi/rls_dhaka.png)
+![RLS test: Dhaka manager](powerbi/dhaka.png)
 
 **Regional head** (`regional.head@company.com`): Dhaka and Khulna.
 
